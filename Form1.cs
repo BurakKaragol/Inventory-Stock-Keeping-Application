@@ -12,14 +12,72 @@ namespace Inventory_Stock_Keeping_Application
 {
     public partial class Form1 : Form
     {
+        bool isMaximized = false;
+        bool isDragging = false;
+        Point dragCursorPoint;
+        Point dragFormPoint;
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void upperPanel_MouseDown(object sender, MouseEventArgs e)
         {
+            isDragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
 
+        private void upperPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+
+        }
+
+        private void upperPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void maximizeButton_Click(object sender, EventArgs e)
+        {
+            ToggleMaximize();
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void upperPanel_DoubleClick(object sender, EventArgs e)
+        {
+            ToggleMaximize();
+        }
+
+        public void ToggleMaximize()
+        {
+            if (isMaximized)
+            {
+                Console.WriteLine("normal");
+                this.WindowState = FormWindowState.Normal;
+                isMaximized = false;
+            }
+            else
+            {
+                Console.WriteLine("maximize");
+                this.WindowState = FormWindowState.Maximized;
+                isMaximized = true;
+            }
         }
     }
 }
