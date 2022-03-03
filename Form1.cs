@@ -19,7 +19,7 @@ namespace Inventory_Stock_Keeping_Application
         bool isDragging = false;
         System.Drawing.Point dragCursorPoint;
         System.Drawing.Point dragFormPoint;
-        string[] names = { "deneme1", "deneme2" };
+        Material[] materials = {new Material("deneme1", 5), new Material("deneme2", 10)};
         int[] nums = { 1, 2 };
         Product product;
 
@@ -27,7 +27,7 @@ namespace Inventory_Stock_Keeping_Application
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            product = new Product(names, nums);
+            product = new Product(materials, nums);
         }
 
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)

@@ -7,32 +7,34 @@ using Material = Inventory_Stock_Keeping_Application.Classes.Material;
 
 namespace Inventory_Stock_Keeping_Application.Classes
 {
-    public struct MaterialData
+    struct MaterialData
     {
-        Material material;
-        int number;
+        public Material material { get; set; }
+        public int number { get; set; }
     }
 
     internal class Product
     {
-        public MaterialData[] materials;
+        public List<MaterialData> materials;
 
-        public Product(string[] names, int[] numbers)
+        public Product(Material[] mats, int[] nums)
         {
-            materials = new MaterialData[names.Length];
-            for (int i = 0; i < names.Length; i++)
+            materials = new List<MaterialData>();
+            for (int i = 0; i < mats.Length; i++)
             {
-                materials.SetValue(names[i], i);
-                materials.SetValue(numbers[i], i);
+                MaterialData temp = new MaterialData();
+                temp.material = mats[i];
+                temp.number = nums[i];
+                materials.Add(temp);
             }
         }
 
         public bool AddMaterial(Material mat, int number)
         {
             bool hasMaterial = false;
-            for (int i = 0; i < materials.Length; i++)
+            for (int i = 0; i < materials.Count; i++)
             {
-                Console.WriteLine(materials.GetValue(i).ToString());
+                Console.WriteLine(materials[i]);
             }
             return !hasMaterial;
         }
