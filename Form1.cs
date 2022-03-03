@@ -20,6 +20,7 @@ namespace Inventory_Stock_Keeping_Application
         System.Drawing.Point dragCursorPoint;
         System.Drawing.Point dragFormPoint;
         List<Product> productList;
+        List<Material> materialList;
         StockPage stockPageController;
         ExcellHandler excell;
 
@@ -28,7 +29,7 @@ namespace Inventory_Stock_Keeping_Application
             InitializeComponent();
             this.DoubleBuffered = true;
             excell = new ExcellHandler("database");
-            stockPageController = new StockPage(searchFilterComboBox.Items);
+            stockPageController = new StockPage(searchFilterComboBox.Items, materialList);
         }
 
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)

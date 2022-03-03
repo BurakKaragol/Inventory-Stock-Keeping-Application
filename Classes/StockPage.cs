@@ -18,10 +18,10 @@ namespace Inventory_Stock_Keeping_Application.Classes
         int selectedIndex = 0;
         int listIndex = 0;
 
-        public StockPage(ComboBox.ObjectCollection elements)
+        public StockPage(ComboBox.ObjectCollection elements, List<Material> listElements)
         {
             cbElements = elements;
-            materialList = new List<Material>();
+            materialList = listElements;
         }
 
         public void EditSelected()
@@ -32,15 +32,6 @@ namespace Inventory_Stock_Keeping_Application.Classes
         public void AddComponent()
         {
             // new form
-            Material material = materialList[listIndex];
-            if (!materialList.Contains(material))
-            {
-                materialList.Add(material);
-            }
-            else
-            {
-                // material already exist
-            }
         }
 
         public void RemoveComponent()
