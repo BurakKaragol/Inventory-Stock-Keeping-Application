@@ -41,11 +41,9 @@
             this.statusPage = new System.Windows.Forms.TabPage();
             this.productionPage = new System.Windows.Forms.TabPage();
             this.otherPage = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
             this.upperPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.stockPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitter1
@@ -171,7 +169,6 @@
             // 
             // stockPage
             // 
-            this.stockPage.Controls.Add(this.button2);
             this.stockPage.Location = new System.Drawing.Point(4, 29);
             this.stockPage.Name = "stockPage";
             this.stockPage.Padding = new System.Windows.Forms.Padding(3);
@@ -220,16 +217,6 @@
             this.otherPage.Text = "OTHER";
             this.otherPage.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(335, 183);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(242, 108);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,7 +236,6 @@
             this.upperPanel.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
-            this.stockPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -269,7 +255,6 @@
         private System.Windows.Forms.TabPage statusPage;
         private System.Windows.Forms.TabPage productionPage;
         private System.Windows.Forms.TabPage otherPage;
-        private System.Windows.Forms.Button button2;
     }
 }
 

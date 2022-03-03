@@ -87,10 +87,5 @@ namespace Inventory_Stock_Keeping_Application
                 isMaximized = true;
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //product.AddMaterial()
-        }
     }
 }
