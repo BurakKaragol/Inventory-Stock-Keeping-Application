@@ -10,31 +10,36 @@ namespace Inventory_Stock_Keeping_Application.Classes
     {
         private static int idx = 1;
         public int Id;
+        public string StockCode;
         public string Name;
         public int Number;
+        public string Type;
         public float Price;
         public string From;
-        public string Link;
+        public string Date;
 
-        public Material(string name, int number, float price = 0.0f, string from = "unknown", string link = "empty")
+        public Material(string stockCode, string name, int number, string type = "not-specified",
+            float price = 0.0f, string from = "unknown", string date = "empty")
         {
             Id = idx;
             idx = idx + 1;
+            StockCode = stockCode;
             Name = name;
             Number = number;
+            Type = type;
             Price = price;
             From = from;
-            Link = link;
+            Date = date;
         }
 
         public static bool operator ==(Material a, Material b)
         {
-            return a.Id == b.Id;
+            return a.Id == b.Id || a.StockCode == b.StockCode;
         }
 
         public static bool operator !=(Material a, Material b)
         {
-            return a.Id != b.Id;
+            return a.Id != b.Id || a.StockCode != b.StockCode;
         }
     }
 }

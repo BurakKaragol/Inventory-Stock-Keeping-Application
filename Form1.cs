@@ -19,15 +19,13 @@ namespace Inventory_Stock_Keeping_Application
         bool isDragging = false;
         System.Drawing.Point dragCursorPoint;
         System.Drawing.Point dragFormPoint;
-        Material[] materials = {new Material("deneme1", 5), new Material("deneme2", 10)};
-        int[] nums = { 1, 2 };
-        Product product;
+        List<Material> materialList;
+        List<Product> productList;
 
         public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            product = new Product(materials, nums);
         }
 
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)
@@ -44,7 +42,6 @@ namespace Inventory_Stock_Keeping_Application
                 System.Drawing.Point dif = System.Drawing.Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
                 this.Location = System.Drawing.Point.Add(dragFormPoint, new Size(dif));
             }
-
         }
 
         private void upperPanel_MouseUp(object sender, MouseEventArgs e)
