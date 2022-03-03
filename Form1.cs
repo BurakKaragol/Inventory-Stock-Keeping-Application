@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using Material = Inventory_Stock_Keeping_Application.Classes.Material;
+using Product = Inventory_Stock_Keeping_Application.Classes.Product;
 
 namespace Inventory_Stock_Keeping_Application
 {
@@ -14,12 +17,17 @@ namespace Inventory_Stock_Keeping_Application
     {
         bool isMaximized = false;
         bool isDragging = false;
-        Point dragCursorPoint;
-        Point dragFormPoint;
+        System.Drawing.Point dragCursorPoint;
+        System.Drawing.Point dragFormPoint;
+        string[] names = { "deneme1", "deneme2" };
+        int[] nums = { 1, 2 };
+        Product product;
 
         public Form1()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            product = new Product(names, nums);
         }
 
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)
@@ -33,8 +41,8 @@ namespace Inventory_Stock_Keeping_Application
         {
             if (isDragging)
             {
-                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(dif));
+                System.Drawing.Point dif = System.Drawing.Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = System.Drawing.Point.Add(dragFormPoint, new Size(dif));
             }
 
         }
@@ -78,6 +86,11 @@ namespace Inventory_Stock_Keeping_Application
                 this.WindowState = FormWindowState.Maximized;
                 isMaximized = true;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //product.AddMaterial()
         }
     }
 }

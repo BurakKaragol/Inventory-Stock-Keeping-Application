@@ -9,3 +9,4 @@ C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-
 C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Debug\Inventory-Stock-Keeping-Application.csproj.CoreCompileInputs.cache
 C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Debug\Inventory-Stock-Keeping-Application.exe
 C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Debug\Inventory-Stock-Keeping-Application.pdb
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Debug\Inventory-Stock-Keeping-Application.csproj.ResolveComReference.cache

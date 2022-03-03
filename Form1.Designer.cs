@@ -30,20 +30,22 @@
         {
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.upperPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.maximizeButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.upperPanelLabel = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.closeButton = new System.Windows.Forms.Button();
-            this.maximizeButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.stockPage = new System.Windows.Forms.TabPage();
             this.productPage = new System.Windows.Forms.TabPage();
             this.statusPage = new System.Windows.Forms.TabPage();
             this.productionPage = new System.Windows.Forms.TabPage();
-            this.settıngsPage = new System.Windows.Forms.TabPage();
+            this.otherPage = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.upperPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
+            this.stockPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitter1
@@ -73,6 +75,57 @@
             this.upperPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.upperPanel_MouseMove);
             this.upperPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.upperPanel_MouseUp);
             // 
+            // button1
+            // 
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(865, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 30);
+            this.button1.TabIndex = 6;
+            this.button1.TabStop = false;
+            this.button1.Text = "_";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // maximizeButton
+            // 
+            this.maximizeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.maximizeButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.maximizeButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.maximizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.maximizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maximizeButton.Location = new System.Drawing.Point(910, 0);
+            this.maximizeButton.Name = "maximizeButton";
+            this.maximizeButton.Size = new System.Drawing.Size(45, 30);
+            this.maximizeButton.TabIndex = 5;
+            this.maximizeButton.TabStop = false;
+            this.maximizeButton.Text = "□";
+            this.maximizeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.maximizeButton.UseVisualStyleBackColor = false;
+            this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.closeButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.Location = new System.Drawing.Point(955, 0);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(45, 30);
+            this.closeButton.TabIndex = 4;
+            this.closeButton.TabStop = false;
+            this.closeButton.Text = "x";
+            this.closeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // upperPanelLabel
             // 
             this.upperPanelLabel.AutoSize = true;
@@ -98,64 +151,13 @@
             this.mainPanel.Size = new System.Drawing.Size(1000, 570);
             this.mainPanel.TabIndex = 3;
             // 
-            // closeButton
-            // 
-            this.closeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.closeButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeButton.Location = new System.Drawing.Point(955, 0);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(45, 30);
-            this.closeButton.TabIndex = 4;
-            this.closeButton.TabStop = false;
-            this.closeButton.Text = "x";
-            this.closeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.closeButton.UseVisualStyleBackColor = false;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
-            // maximizeButton
-            // 
-            this.maximizeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.maximizeButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.maximizeButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.maximizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maximizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maximizeButton.Location = new System.Drawing.Point(910, 0);
-            this.maximizeButton.Name = "maximizeButton";
-            this.maximizeButton.Size = new System.Drawing.Size(45, 30);
-            this.maximizeButton.TabIndex = 5;
-            this.maximizeButton.TabStop = false;
-            this.maximizeButton.Text = "□";
-            this.maximizeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.maximizeButton.UseVisualStyleBackColor = false;
-            this.maximizeButton.Click += new System.EventHandler(this.maximizeButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(865, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 30);
-            this.button1.TabIndex = 6;
-            this.button1.TabStop = false;
-            this.button1.Text = "_";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.minimizeButton_Click);
-            // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.stockPage);
             this.tabControl.Controls.Add(this.productPage);
             this.tabControl.Controls.Add(this.statusPage);
             this.tabControl.Controls.Add(this.productionPage);
-            this.tabControl.Controls.Add(this.settıngsPage);
+            this.tabControl.Controls.Add(this.otherPage);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.ItemSize = new System.Drawing.Size(80, 25);
@@ -169,6 +171,7 @@
             // 
             // stockPage
             // 
+            this.stockPage.Controls.Add(this.button2);
             this.stockPage.Location = new System.Drawing.Point(4, 29);
             this.stockPage.Name = "stockPage";
             this.stockPage.Padding = new System.Windows.Forms.Padding(3);
@@ -207,15 +210,25 @@
             this.productionPage.Text = "PRODUCTION";
             this.productionPage.UseVisualStyleBackColor = true;
             // 
-            // settıngsPage
+            // otherPage
             // 
-            this.settıngsPage.Location = new System.Drawing.Point(4, 29);
-            this.settıngsPage.Name = "settıngsPage";
-            this.settıngsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.settıngsPage.Size = new System.Drawing.Size(992, 537);
-            this.settıngsPage.TabIndex = 4;
-            this.settıngsPage.Text = "SETTINGS";
-            this.settıngsPage.UseVisualStyleBackColor = true;
+            this.otherPage.Location = new System.Drawing.Point(4, 29);
+            this.otherPage.Name = "otherPage";
+            this.otherPage.Padding = new System.Windows.Forms.Padding(3);
+            this.otherPage.Size = new System.Drawing.Size(992, 537);
+            this.otherPage.TabIndex = 4;
+            this.otherPage.Text = "OTHER";
+            this.otherPage.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(335, 183);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(242, 108);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -236,6 +249,7 @@
             this.upperPanel.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
+            this.stockPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -254,7 +268,8 @@
         private System.Windows.Forms.TabPage productPage;
         private System.Windows.Forms.TabPage statusPage;
         private System.Windows.Forms.TabPage productionPage;
-        private System.Windows.Forms.TabPage settıngsPage;
+        private System.Windows.Forms.TabPage otherPage;
+        private System.Windows.Forms.Button button2;
     }
 }
 
