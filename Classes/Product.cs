@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Material = Inventory_Stock_Keeping_Application.Classes.Material;
 
 namespace Inventory_Stock_Keeping_Application.Classes
 {
-    struct MaterialData
+    public struct MaterialData
     {
         public Material material { get; set; }
         public int required { get; set; }
     }
 
-    internal class Product
+    public class Product
     {
         public List<MaterialData> materials;
         public int number { get; set; }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Material = Inventory_Stock_Keeping_Application.Classes.Material;
 using Product = Inventory_Stock_Keeping_Application.Classes.Product;
+using StockPage = Inventory_Stock_Keeping_Application.Classes.StockPage;
 
 namespace Inventory_Stock_Keeping_Application
 {
@@ -18,14 +19,16 @@ namespace Inventory_Stock_Keeping_Application
         bool isDragging = false;
         System.Drawing.Point dragCursorPoint;
         System.Drawing.Point dragFormPoint;
-        List<Material> materialList;
         List<Product> productList;
+        StockPage stockPageController;
+        ExcellHandler excell;
 
         public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            ExcellHandler excell = new ExcellHandler("database");
+            excell = new ExcellHandler("database");
+            stockPageController = new StockPage(searchFilterComboBox.Items);
         }
 
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)
@@ -87,27 +90,32 @@ namespace Inventory_Stock_Keeping_Application
 
         private void searchFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            stockPageController.SelectCbox(searchFilterComboBox.SelectedIndex);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            stockPageController.SearchText(textBox1.Text);
         }
 
         private void editComponentButton_Click(object sender, EventArgs e)
         {
-
+            stockPageController.EditSelected();
         }
 
         private void removeComponentButton_Click(object sender, EventArgs e)
         {
-
+            stockPageController.RemoveComponent();
         }
 
         private void addComponentButton_Click(object sender, EventArgs e)
         {
+            stockPageController.AddComponent();
+        }
 
+        private void componentListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            stockPageController.SelectList(componentListbox.SelectedIndex);
         }
     }
 }

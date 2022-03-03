@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inventory_Stock_Keeping_Application.Classes
 {
-    internal class Material
+    public class Material
     {
         private static int idx = 1;
         public int Id;

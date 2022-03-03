@@ -37,25 +37,29 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.stockPage = new System.Windows.Forms.TabPage();
+            this.stockPageLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.editComponentButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.filterByText = new System.Windows.Forms.Label();
+            this.searchFilterComboBox = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.removeComponentButton = new System.Windows.Forms.Button();
+            this.addComponentButton = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.componentListbox = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.productPage = new System.Windows.Forms.TabPage();
             this.statusPage = new System.Windows.Forms.TabPage();
             this.productionPage = new System.Windows.Forms.TabPage();
             this.otherPage = new System.Windows.Forms.TabPage();
-            this.stockPageLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.addComponentButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.removeComponentButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.searchFilterComboBox = new System.Windows.Forms.ComboBox();
-            this.filterByText = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.editComponentButton = new System.Windows.Forms.Button();
             this.upperPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.stockPage.SuspendLayout();
             this.stockPageLayout.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitter1
@@ -190,6 +194,174 @@
             this.stockPage.Text = "STOCK";
             this.stockPage.UseVisualStyleBackColor = true;
             // 
+            // stockPageLayout
+            // 
+            this.stockPageLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.stockPageLayout.ColumnCount = 1;
+            this.stockPageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.stockPageLayout.Controls.Add(this.panel1, 0, 0);
+            this.stockPageLayout.Controls.Add(this.panel2, 0, 1);
+            this.stockPageLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stockPageLayout.Location = new System.Drawing.Point(3, 3);
+            this.stockPageLayout.Margin = new System.Windows.Forms.Padding(0);
+            this.stockPageLayout.Name = "stockPageLayout";
+            this.stockPageLayout.RowCount = 2;
+            this.stockPageLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.stockPageLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.stockPageLayout.Size = new System.Drawing.Size(986, 531);
+            this.stockPageLayout.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.editComponentButton);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.filterByText);
+            this.panel1.Controls.Add(this.searchFilterComboBox);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.removeComponentButton);
+            this.panel1.Controls.Add(this.addComponentButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(986, 30);
+            this.panel1.TabIndex = 1;
+            // 
+            // editComponentButton
+            // 
+            this.editComponentButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.editComponentButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.editComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editComponentButton.Location = new System.Drawing.Point(686, 0);
+            this.editComponentButton.Margin = new System.Windows.Forms.Padding(0);
+            this.editComponentButton.Name = "editComponentButton";
+            this.editComponentButton.Size = new System.Drawing.Size(100, 30);
+            this.editComponentButton.TabIndex = 6;
+            this.editComponentButton.Text = "Edit";
+            this.editComponentButton.UseVisualStyleBackColor = false;
+            this.editComponentButton.Click += new System.EventHandler(this.editComponentButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(209, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Search:";
+            // 
+            // filterByText
+            // 
+            this.filterByText.AutoSize = true;
+            this.filterByText.Location = new System.Drawing.Point(5, 7);
+            this.filterByText.Name = "filterByText";
+            this.filterByText.Size = new System.Drawing.Size(62, 17);
+            this.filterByText.TabIndex = 4;
+            this.filterByText.Text = "Filter by:";
+            // 
+            // searchFilterComboBox
+            // 
+            this.searchFilterComboBox.FormattingEnabled = true;
+            this.searchFilterComboBox.Items.AddRange(new object[] {
+            "Stock Code",
+            "Name",
+            "Type",
+            "From",
+            "Date"});
+            this.searchFilterComboBox.Location = new System.Drawing.Point(73, 3);
+            this.searchFilterComboBox.Name = "searchFilterComboBox";
+            this.searchFilterComboBox.Size = new System.Drawing.Size(120, 24);
+            this.searchFilterComboBox.TabIndex = 3;
+            this.searchFilterComboBox.Text = "Name";
+            this.searchFilterComboBox.SelectedIndexChanged += new System.EventHandler(this.searchFilterComboBox_SelectedIndexChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(272, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(400, 23);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // removeComponentButton
+            // 
+            this.removeComponentButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.removeComponentButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.removeComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeComponentButton.Location = new System.Drawing.Point(786, 0);
+            this.removeComponentButton.Margin = new System.Windows.Forms.Padding(0);
+            this.removeComponentButton.Name = "removeComponentButton";
+            this.removeComponentButton.Size = new System.Drawing.Size(100, 30);
+            this.removeComponentButton.TabIndex = 1;
+            this.removeComponentButton.Text = "Remove";
+            this.removeComponentButton.UseVisualStyleBackColor = false;
+            this.removeComponentButton.Click += new System.EventHandler(this.removeComponentButton_Click);
+            // 
+            // addComponentButton
+            // 
+            this.addComponentButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.addComponentButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.addComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addComponentButton.Location = new System.Drawing.Point(886, 0);
+            this.addComponentButton.Margin = new System.Windows.Forms.Padding(0);
+            this.addComponentButton.Name = "addComponentButton";
+            this.addComponentButton.Size = new System.Drawing.Size(100, 30);
+            this.addComponentButton.TabIndex = 0;
+            this.addComponentButton.Text = "Add";
+            this.addComponentButton.UseVisualStyleBackColor = false;
+            this.addComponentButton.Click += new System.EventHandler(this.addComponentButton_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.componentListbox);
+            this.panel2.Controls.Add(this.tableLayoutPanel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 30);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(986, 501);
+            this.panel2.TabIndex = 2;
+            // 
+            // componentListbox
+            // 
+            this.componentListbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.componentListbox.FormattingEnabled = true;
+            this.componentListbox.ItemHeight = 16;
+            this.componentListbox.Items.AddRange(new object[] {
+            "asjdhck",
+            "asdchkj",
+            "askhdcgva",
+            "askdhjcas",
+            "kasdvcka",
+            "aksdhca"});
+            this.componentListbox.Location = new System.Drawing.Point(0, 20);
+            this.componentListbox.Name = "componentListbox";
+            this.componentListbox.Size = new System.Drawing.Size(986, 481);
+            this.componentListbox.TabIndex = 1;
+            this.componentListbox.SelectedIndexChanged += new System.EventHandler(this.componentListbox_SelectedIndexChanged);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 10;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(986, 20);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
             // productPage
             // 
             this.productPage.Location = new System.Drawing.Point(4, 29);
@@ -230,123 +402,6 @@
             this.otherPage.Text = "OTHER";
             this.otherPage.UseVisualStyleBackColor = true;
             // 
-            // stockPageLayout
-            // 
-            this.stockPageLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.stockPageLayout.ColumnCount = 1;
-            this.stockPageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.stockPageLayout.Controls.Add(this.panel1, 0, 0);
-            this.stockPageLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stockPageLayout.Location = new System.Drawing.Point(3, 3);
-            this.stockPageLayout.Margin = new System.Windows.Forms.Padding(0);
-            this.stockPageLayout.Name = "stockPageLayout";
-            this.stockPageLayout.RowCount = 2;
-            this.stockPageLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.stockPageLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.stockPageLayout.Size = new System.Drawing.Size(986, 531);
-            this.stockPageLayout.TabIndex = 0;
-            // 
-            // addComponentButton
-            // 
-            this.addComponentButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.addComponentButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.addComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addComponentButton.Location = new System.Drawing.Point(886, 0);
-            this.addComponentButton.Margin = new System.Windows.Forms.Padding(0);
-            this.addComponentButton.Name = "addComponentButton";
-            this.addComponentButton.Size = new System.Drawing.Size(100, 30);
-            this.addComponentButton.TabIndex = 0;
-            this.addComponentButton.Text = "Add";
-            this.addComponentButton.UseVisualStyleBackColor = false;
-            this.addComponentButton.Click += new System.EventHandler(this.addComponentButton_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.editComponentButton);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.filterByText);
-            this.panel1.Controls.Add(this.searchFilterComboBox);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.removeComponentButton);
-            this.panel1.Controls.Add(this.addComponentButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(986, 30);
-            this.panel1.TabIndex = 1;
-            // 
-            // removeComponentButton
-            // 
-            this.removeComponentButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.removeComponentButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.removeComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removeComponentButton.Location = new System.Drawing.Point(786, 0);
-            this.removeComponentButton.Margin = new System.Windows.Forms.Padding(0);
-            this.removeComponentButton.Name = "removeComponentButton";
-            this.removeComponentButton.Size = new System.Drawing.Size(100, 30);
-            this.removeComponentButton.TabIndex = 1;
-            this.removeComponentButton.Text = "Remove";
-            this.removeComponentButton.UseVisualStyleBackColor = false;
-            this.removeComponentButton.Click += new System.EventHandler(this.removeComponentButton_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(272, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(400, 23);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // searchFilterComboBox
-            // 
-            this.searchFilterComboBox.FormattingEnabled = true;
-            this.searchFilterComboBox.Items.AddRange(new object[] {
-            "Stock Code",
-            "Name",
-            "Type",
-            "From",
-            "Date"});
-            this.searchFilterComboBox.Location = new System.Drawing.Point(73, 3);
-            this.searchFilterComboBox.Name = "searchFilterComboBox";
-            this.searchFilterComboBox.Size = new System.Drawing.Size(120, 24);
-            this.searchFilterComboBox.TabIndex = 3;
-            this.searchFilterComboBox.Text = "Name";
-            this.searchFilterComboBox.SelectedIndexChanged += new System.EventHandler(this.searchFilterComboBox_SelectedIndexChanged);
-            // 
-            // filterByText
-            // 
-            this.filterByText.AutoSize = true;
-            this.filterByText.Location = new System.Drawing.Point(5, 7);
-            this.filterByText.Name = "filterByText";
-            this.filterByText.Size = new System.Drawing.Size(62, 17);
-            this.filterByText.TabIndex = 4;
-            this.filterByText.Text = "Filter by:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(209, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Search:";
-            // 
-            // editComponentButton
-            // 
-            this.editComponentButton.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.editComponentButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.editComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editComponentButton.Location = new System.Drawing.Point(686, 0);
-            this.editComponentButton.Margin = new System.Windows.Forms.Padding(0);
-            this.editComponentButton.Name = "editComponentButton";
-            this.editComponentButton.Size = new System.Drawing.Size(100, 30);
-            this.editComponentButton.TabIndex = 6;
-            this.editComponentButton.Text = "Edit";
-            this.editComponentButton.UseVisualStyleBackColor = false;
-            this.editComponentButton.Click += new System.EventHandler(this.editComponentButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +425,7 @@
             this.stockPageLayout.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -385,19 +441,22 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage stockPage;
+        private System.Windows.Forms.TableLayoutPanel stockPageLayout;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button editComponentButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label filterByText;
+        private System.Windows.Forms.ComboBox searchFilterComboBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button removeComponentButton;
+        private System.Windows.Forms.Button addComponentButton;
         private System.Windows.Forms.TabPage productPage;
         private System.Windows.Forms.TabPage statusPage;
         private System.Windows.Forms.TabPage productionPage;
         private System.Windows.Forms.TabPage otherPage;
-        private System.Windows.Forms.TableLayoutPanel stockPageLayout;
-        private System.Windows.Forms.Button addComponentButton;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button removeComponentButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox searchFilterComboBox;
-        private System.Windows.Forms.Label filterByText;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button editComponentButton;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ListBox componentListbox;
     }
 }
 
