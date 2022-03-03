@@ -13,19 +13,23 @@ namespace Inventory_Stock_Keeping_Application.Classes
         public string StockCode;
         public string Name;
         public int Number;
+        public int Stack;
+        private int TotalNumber;
         public string Type;
         public float Price;
         public string From;
         public string Date;
 
-        public Material(string stockCode, string name, int number, string type = "not-specified",
-            float price = 0.0f, string from = "unknown", string date = "empty")
+        public Material(string stockCode, string name, int number, int stack = 1,
+            string type = "not-specified", float price = 0.0f, string from = "unknown", string date = "empty")
         {
             Id = idx;
             idx = idx + 1;
             StockCode = stockCode;
             Name = name;
             Number = number;
+            Stack = stack;
+            TotalNumber = number * stack;
             Type = type;
             Price = price;
             From = from;
@@ -34,12 +38,12 @@ namespace Inventory_Stock_Keeping_Application.Classes
 
         public static bool operator ==(Material a, Material b)
         {
-            return a.Id == b.Id || a.StockCode == b.StockCode;
+            return a.Id == b.Id || a.StockCode == b.StockCode || a.Name == b.Name;
         }
 
         public static bool operator !=(Material a, Material b)
         {
-            return a.Id != b.Id || a.StockCode != b.StockCode;
+            return a.Id != b.Id || a.StockCode != b.StockCode || a.Name != b.Name;
         }
     }
 }

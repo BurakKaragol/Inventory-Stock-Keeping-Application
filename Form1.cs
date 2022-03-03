@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
 using Material = Inventory_Stock_Keeping_Application.Classes.Material;
 using Product = Inventory_Stock_Keeping_Application.Classes.Product;
 
@@ -26,6 +25,7 @@ namespace Inventory_Stock_Keeping_Application
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            ExcellHandler excell = new ExcellHandler("database");
         }
 
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)
@@ -83,6 +83,31 @@ namespace Inventory_Stock_Keeping_Application
                 this.WindowState = FormWindowState.Maximized;
                 isMaximized = true;
             }
+        }
+
+        private void searchFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editComponentButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void removeComponentButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addComponentButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
