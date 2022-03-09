@@ -20,16 +20,44 @@ namespace Inventory_Stock_Keeping_Application
         System.Drawing.Point dragCursorPoint;
         System.Drawing.Point dragFormPoint;
         List<Product> productList;
-        List<Material> materialList;
-        StockPage stockPageController;
-        ExcellHandler excell;
+        static List<Material> materialList;
+        static StockPage stockPageController;
+        ExcellHandler excellHandler;
+        public static Material materialToAdd;
 
         public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            excell = new ExcellHandler("database");
+            excellHandler = new ExcellHandler("database");
             stockPageController = new StockPage(searchFilterComboBox.Items, materialList);
+        }
+
+        public static void AddNewMaterial()
+        {
+            //materialList.Append(materialToAdd);
+            MessageBox.Show(materialToAdd.Id.ToString());
+            MessageBox.Show(materialToAdd.StockCode);
+            MessageBox.Show(materialToAdd.Name);
+            MessageBox.Show(materialToAdd.Number.ToString());
+            MessageBox.Show(materialToAdd.Stack.ToString());
+            MessageBox.Show(materialToAdd.TotalNumber.ToString());
+            MessageBox.Show(materialToAdd.Type);
+            MessageBox.Show(materialToAdd.Price.ToString());
+            MessageBox.Show(materialToAdd.From);
+            MessageBox.Show(materialToAdd.Date);
+    }
+
+        public static bool CheckExist(string stockCode)
+        {
+            for (int i = 0; i < materialList.Count; i++)
+            {
+                if (stockCode == materialList[i].StockCode)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)
@@ -117,6 +145,16 @@ namespace Inventory_Stock_Keeping_Application
         private void componentListbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             stockPageController.SelectList(componentListbox.SelectedIndex);
+        }
+
+        private void closeButton_MouseEnter(object sender, EventArgs e)
+        {
+            closeButton.BackColor = Color.Red;
+        }
+
+        private void closeButton_MouseLeave(object sender, EventArgs e)
+        {
+            closeButton.BackColor = SystemColors.ButtonShadow;
         }
     }
 }

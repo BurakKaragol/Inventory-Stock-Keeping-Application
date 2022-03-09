@@ -46,7 +46,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.removeComponentButton = new System.Windows.Forms.Button();
             this.addComponentButton = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.Headers = new System.Windows.Forms.Panel();
             this.componentListbox = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.productPage = new System.Windows.Forms.TabPage();
@@ -59,7 +59,7 @@
             this.stockPage.SuspendLayout();
             this.stockPageLayout.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.Headers.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitter1
@@ -139,6 +139,8 @@
             this.closeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            this.closeButton.MouseEnter += new System.EventHandler(this.closeButton_MouseEnter);
+            this.closeButton.MouseLeave += new System.EventHandler(this.closeButton_MouseLeave);
             // 
             // upperPanelLabel
             // 
@@ -200,7 +202,7 @@
             this.stockPageLayout.ColumnCount = 1;
             this.stockPageLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.stockPageLayout.Controls.Add(this.panel1, 0, 0);
-            this.stockPageLayout.Controls.Add(this.panel2, 0, 1);
+            this.stockPageLayout.Controls.Add(this.Headers, 0, 1);
             this.stockPageLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stockPageLayout.Location = new System.Drawing.Point(3, 3);
             this.stockPageLayout.Margin = new System.Windows.Forms.Padding(0);
@@ -312,16 +314,16 @@
             this.addComponentButton.UseVisualStyleBackColor = false;
             this.addComponentButton.Click += new System.EventHandler(this.addComponentButton_Click);
             // 
-            // panel2
+            // Headers
             // 
-            this.panel2.Controls.Add(this.componentListbox);
-            this.panel2.Controls.Add(this.tableLayoutPanel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 30);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(986, 501);
-            this.panel2.TabIndex = 2;
+            this.Headers.Controls.Add(this.componentListbox);
+            this.Headers.Controls.Add(this.tableLayoutPanel1);
+            this.Headers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Headers.Location = new System.Drawing.Point(0, 30);
+            this.Headers.Margin = new System.Windows.Forms.Padding(0);
+            this.Headers.Name = "Headers";
+            this.Headers.Size = new System.Drawing.Size(986, 501);
+            this.Headers.TabIndex = 2;
             // 
             // componentListbox
             // 
@@ -425,7 +427,7 @@
             this.stockPageLayout.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.Headers.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -454,7 +456,7 @@
         private System.Windows.Forms.TabPage statusPage;
         private System.Windows.Forms.TabPage productionPage;
         private System.Windows.Forms.TabPage otherPage;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel Headers;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ListBox componentListbox;
     }

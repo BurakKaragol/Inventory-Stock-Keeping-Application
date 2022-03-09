@@ -14,7 +14,7 @@ namespace Inventory_Stock_Keeping_Application.Classes
         public string Name;
         public int Number;
         public int Stack;
-        private int TotalNumber;
+        public int TotalNumber;
         public string Type;
         public float Price;
         public string From;
