@@ -25,57 +25,7 @@ namespace Inventory_Stock_Keeping_Application
             this.DoubleBuffered = true;
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void closeButton_MouseEnter(object sender, EventArgs e)
-        {
-            closeButton.BackColor = Color.Red;
-        }
-
-        private void closeButton_MouseLeave(object sender, EventArgs e)
-        {
-            closeButton.BackColor = SystemColors.ButtonShadow;
-        }
-
-        private void upperPanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            isDragging = true;
-            dragCursorPoint = Cursor.Position;
-            dragFormPoint = this.Location;
-        }
-
-        private void upperPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isDragging)
-            {
-                System.Drawing.Point dif = System.Drawing.Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = System.Drawing.Point.Add(dragFormPoint, new Size(dif));
-            }
-        }
-
-        private void upperPanel_MouseUp(object sender, MouseEventArgs e)
-        {
-            isDragging = false;
-        }
-
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            LogMaterial(false);
-        }
-
-        private void addContinueButton_Click(object sender, EventArgs e)
-        {
-            LogMaterial(true);
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        #region Functions
         private void LogMaterial(bool isContinue = false)
         {
             if (/*Form1.CheckExist(stockCodeTextbox.Text)*/false)
@@ -147,5 +97,74 @@ namespace Inventory_Stock_Keeping_Application
             fromTextbox.Text = null;
             dateTextbox.Text = null;
         }
+
+        private void GetTexts()
+        {
+            stockCodeTextbox.Text = null;
+            nameTextbox.Text = null;
+            numberTextbox.Text = null;
+            stackTextbox.Text = null;
+            typeTextbox.Text = null;
+            priceTextbox.Text = null;
+            fromTextbox.Text = null;
+            dateTextbox.Text = null;
+        }
+
+        #endregion
+
+        #region ProgramGenerated
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void closeButton_MouseEnter(object sender, EventArgs e)
+        {
+            closeButton.BackColor = Color.Red;
+        }
+
+        private void closeButton_MouseLeave(object sender, EventArgs e)
+        {
+            closeButton.BackColor = SystemColors.ButtonShadow;
+        }
+
+        private void upperPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            isDragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+
+        private void upperPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                System.Drawing.Point dif = System.Drawing.Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = System.Drawing.Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+
+        private void upperPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            LogMaterial(false);
+        }
+
+        private void addContinueButton_Click(object sender, EventArgs e)
+        {
+            LogMaterial(true);
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion
     }
 }

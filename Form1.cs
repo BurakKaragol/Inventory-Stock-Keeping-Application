@@ -33,6 +33,8 @@ namespace Inventory_Stock_Keeping_Application
             stockPageController = new StockPage(searchFilterComboBox.Items, materialList);
         }
 
+        #region Funcitons
+
         public static void AddNewMaterial()
         {
             //materialList.Append(materialToAdd);
@@ -46,7 +48,7 @@ namespace Inventory_Stock_Keeping_Application
             MessageBox.Show(materialToAdd.Price.ToString());
             MessageBox.Show(materialToAdd.From);
             MessageBox.Show(materialToAdd.Date);
-    }
+        }
 
         public static bool CheckExist(string stockCode)
         {
@@ -59,6 +61,26 @@ namespace Inventory_Stock_Keeping_Application
             }
             return false;
         }
+
+        public void ToggleMaximize()
+        {
+            if (isMaximized)
+            {
+                Console.WriteLine("normal");
+                this.WindowState = FormWindowState.Normal;
+                isMaximized = false;
+            }
+            else
+            {
+                Console.WriteLine("maximize");
+                this.WindowState = FormWindowState.Maximized;
+                isMaximized = true;
+            }
+        }
+
+        #endregion
+
+        #region ProgramGenerated
 
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)
         {
@@ -101,22 +123,6 @@ namespace Inventory_Stock_Keeping_Application
             ToggleMaximize();
         }
 
-        public void ToggleMaximize()
-        {
-            if (isMaximized)
-            {
-                Console.WriteLine("normal");
-                this.WindowState = FormWindowState.Normal;
-                isMaximized = false;
-            }
-            else
-            {
-                Console.WriteLine("maximize");
-                this.WindowState = FormWindowState.Maximized;
-                isMaximized = true;
-            }
-        }
-
         private void searchFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             stockPageController.SelectCbox(searchFilterComboBox.SelectedIndex);
@@ -156,5 +162,7 @@ namespace Inventory_Stock_Keeping_Application
         {
             closeButton.BackColor = SystemColors.ButtonShadow;
         }
+
+        #endregion
     }
 }
