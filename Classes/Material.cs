@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Inventory_Stock_Keeping_Application.Classes
 {
+    /// <summary>
+    /// Material data is going to be stored in this calss
+    /// </summary>
     public class Material
     {
         private static int idx = 1;

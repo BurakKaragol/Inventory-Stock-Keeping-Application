@@ -7,12 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Material = Inventory_Stock_Keeping_Application.Classes.Material;
-using Product = Inventory_Stock_Keeping_Application.Classes.Product;
-using StockPage = Inventory_Stock_Keeping_Application.Classes.StockPage;
+using Inventory_Stock_Keeping_Application.Classes;
 
 namespace Inventory_Stock_Keeping_Application
 {
+    /// <summary>
+    /// main form of the application
+    /// can access and edit material and product lists
+    /// calculate required parts and export as list
+    /// see how many parts you can produce with your existing stock 
+    /// On development for Rezonans Elektronik A.S.
+    /// http://www.rezonanselektronik.net/
+    /// </summary>
     public partial class Form1 : Form
     {
         bool isMaximized = false;
@@ -20,47 +26,18 @@ namespace Inventory_Stock_Keeping_Application
         System.Drawing.Point dragCursorPoint;
         System.Drawing.Point dragFormPoint;
         List<Product> productList;
-        static List<Material> materialList;
         static StockPage stockPageController;
         ExcellHandler excellHandler;
-        public static Material materialToAdd;
 
         public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             excellHandler = new ExcellHandler("database");
-            stockPageController = new StockPage(searchFilterComboBox.Items, materialList);
+            stockPageController = new StockPage(searchFilterComboBox.Items);
         }
 
         #region Funcitons
-
-        public static void AddNewMaterial()
-        {
-            //materialList.Append(materialToAdd);
-            MessageBox.Show(materialToAdd.Id.ToString());
-            MessageBox.Show(materialToAdd.StockCode);
-            MessageBox.Show(materialToAdd.Name);
-            MessageBox.Show(materialToAdd.Number.ToString());
-            MessageBox.Show(materialToAdd.Stack.ToString());
-            MessageBox.Show(materialToAdd.TotalNumber.ToString());
-            MessageBox.Show(materialToAdd.Type);
-            MessageBox.Show(materialToAdd.Price.ToString());
-            MessageBox.Show(materialToAdd.From);
-            MessageBox.Show(materialToAdd.Date);
-        }
-
-        public static bool CheckExist(string stockCode)
-        {
-            for (int i = 0; i < materialList.Count; i++)
-            {
-                if (stockCode == materialList[i].StockCode)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
 
         public void ToggleMaximize()
         {

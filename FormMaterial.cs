@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Material = Inventory_Stock_Keeping_Application.Classes.Material;
-using Product = Inventory_Stock_Keeping_Application.Classes.Product;
-using StockPage = Inventory_Stock_Keeping_Application.Classes.StockPage;
+using Inventory_Stock_Keeping_Application.Classes;
 
 namespace Inventory_Stock_Keeping_Application
 {
@@ -69,11 +67,11 @@ namespace Inventory_Stock_Keeping_Application
                         dateTextbox.Text = "empty";
                     }
 
-                    Form1.materialToAdd = new Material(stockCodeTextbox.Text, nameTextbox.Text,
+                    StockPage.materialToAdd = new Material(stockCodeTextbox.Text, nameTextbox.Text,
                         Convert.ToInt16(numberTextbox.Text), Convert.ToInt16(stackTextbox.Text),
                         typeTextbox.Text, float.Parse(priceTextbox.Text), fromTextbox.Text,
                         dateTextbox.Text);
-                    Form1.AddNewMaterial();
+                    StockPage.AddNewMaterial();
                 }
                 else
                 {
@@ -86,19 +84,20 @@ namespace Inventory_Stock_Keeping_Application
             }
         }
 
-        private void ClearTexts()
+        public void SetTexts(string stockCode, string name, string number, string stack = null,
+            string type = null, string price = null, string from = null, string date = null)
         {
-            stockCodeTextbox.Text = null;
-            nameTextbox.Text = null;
-            numberTextbox.Text = null;
-            stackTextbox.Text = null;
-            typeTextbox.Text = null;
-            priceTextbox.Text = null;
-            fromTextbox.Text = null;
-            dateTextbox.Text = null;
+            stockCodeTextbox.Text = stockCode;
+            nameTextbox.Text = name;
+            numberTextbox.Text = number;
+            stackTextbox.Text = stack;
+            typeTextbox.Text = type;
+            priceTextbox.Text = price;
+            fromTextbox.Text = from;
+            dateTextbox.Text = date;
         }
 
-        private void GetTexts()
+        public void ClearTexts()
         {
             stockCodeTextbox.Text = null;
             nameTextbox.Text = null;
@@ -116,7 +115,7 @@ namespace Inventory_Stock_Keeping_Application
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void closeButton_MouseEnter(object sender, EventArgs e)
@@ -162,7 +161,7 @@ namespace Inventory_Stock_Keeping_Application
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         #endregion

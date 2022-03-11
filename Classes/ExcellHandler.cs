@@ -7,6 +7,10 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Inventory_Stock_Keeping_Application
 {
+    /// <summary>
+    /// This class is going to be used for:
+    /// importing or exporting excell data
+    /// </summary>
     public class ExcellHandler
     {
         public ExcellHandler(string name)

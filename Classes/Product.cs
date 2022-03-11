@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Inventory_Stock_Keeping_Application.Classes
 {
+    // for storing required material data
     public struct MaterialData
     {
         public Material material { get; set; }
         public int required { get; set; }
     }
+
+    /// <summary>
+    /// product data is going to be stored in this class
+    /// </summary>
 
     public class Product
     {

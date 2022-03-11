@@ -10,33 +10,59 @@ using System.Windows.Forms;
 
 namespace Inventory_Stock_Keeping_Application.Classes
 {
+    /// <summary>
+    /// this class is going to be used for events on stock page
+    /// </summary>
     public class StockPage
     {
-        ComboBox.ObjectCollection cbElements;
-        List<Material> materialList;
+        ComboBox.ObjectCollection cbElements; //search combobox elements
+        FormMaterial formMaterial;
+        public static Material materialToAdd;
+        static List<Material> materialList;
         string searchText;
+        int selectedCboxItem = 0;
         int selectedIndex = 0;
-        int listIndex = 0;
 
-        public StockPage(ComboBox.ObjectCollection elements, List<Material> listElements)
+        public StockPage(ComboBox.ObjectCollection elements)
         {
             cbElements = elements;
-            materialList = listElements;
+            formMaterial = new FormMaterial();
+        }
+        public static bool CheckExist(string stockCode)
+        {
+            for (int i = 0; i < materialList.Count; i++)
+            {
+                if (stockCode == materialList[i].StockCode)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static void AddNewMaterial()
+        {
+            //materialList.Append(materialToAdd);
         }
 
         public void EditSelected()
         {
-            // new form
+            formMaterial.SetTexts(materialList[selectedIndex].StockCode, materialList[selectedIndex].Name,
+                materialList[selectedIndex].Number.ToString(), materialList[selectedIndex].Stack.ToString(),
+                materialList[selectedIndex].Type, materialList[selectedIndex].Price.ToString(),
+                materialList[selectedIndex].From, materialList[selectedIndex].Date);
+            formMaterial.Show();
         }
 
         public void AddComponent()
         {
-            // new form
+            formMaterial.ClearTexts();
+            formMaterial.Show();
         }
 
         public void RemoveComponent()
         {
-            Material material = materialList[listIndex];
+            Material material = materialList[selectedIndex];
             if (materialList.Contains(material))
             {
                 materialList.Remove(material);
@@ -61,12 +87,12 @@ namespace Inventory_Stock_Keeping_Application.Classes
 
         public void SelectCbox(int idx)
         {
-            selectedIndex = idx;
+            selectedCboxItem = idx;
         }
 
         public void SelectList(int idx)
         {
-            listIndex = idx;
+            selectedIndex = idx;
         }
 
         public void ShowItems()

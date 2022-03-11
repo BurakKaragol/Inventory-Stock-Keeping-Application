@@ -211,6 +211,7 @@
             this.splitContainer1.Size = new System.Drawing.Size(240, 30);
             this.splitContainer1.SplitterDistance = 90;
             this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabStop = false;
             // 
             // stockCodeLabel
             // 
@@ -263,6 +264,7 @@
             this.splitContainer2.Size = new System.Drawing.Size(240, 30);
             this.splitContainer2.SplitterDistance = 90;
             this.splitContainer2.TabIndex = 0;
+            this.splitContainer2.TabStop = false;
             // 
             // typeLabel
             // 
@@ -283,7 +285,7 @@
             this.typeTextbox.Multiline = false;
             this.typeTextbox.Name = "typeTextbox";
             this.typeTextbox.Size = new System.Drawing.Size(146, 30);
-            this.typeTextbox.TabIndex = 0;
+            this.typeTextbox.TabIndex = 4;
             this.typeTextbox.Text = "";
             // 
             // namePanel
@@ -314,6 +316,7 @@
             this.splitContainer3.Size = new System.Drawing.Size(240, 30);
             this.splitContainer3.SplitterDistance = 90;
             this.splitContainer3.TabIndex = 0;
+            this.splitContainer3.TabStop = false;
             // 
             // nameLabel
             // 
@@ -334,7 +337,7 @@
             this.nameTextbox.Multiline = false;
             this.nameTextbox.Name = "nameTextbox";
             this.nameTextbox.Size = new System.Drawing.Size(146, 30);
-            this.nameTextbox.TabIndex = 0;
+            this.nameTextbox.TabIndex = 1;
             this.nameTextbox.Text = "";
             // 
             // pricePanel
@@ -365,6 +368,7 @@
             this.splitContainer4.Size = new System.Drawing.Size(240, 30);
             this.splitContainer4.SplitterDistance = 90;
             this.splitContainer4.TabIndex = 0;
+            this.splitContainer4.TabStop = false;
             // 
             // priceLabel
             // 
@@ -385,7 +389,7 @@
             this.priceTextbox.Multiline = false;
             this.priceTextbox.Name = "priceTextbox";
             this.priceTextbox.Size = new System.Drawing.Size(146, 30);
-            this.priceTextbox.TabIndex = 0;
+            this.priceTextbox.TabIndex = 5;
             this.priceTextbox.Text = "";
             // 
             // numberPanel
@@ -416,6 +420,7 @@
             this.splitContainer5.Size = new System.Drawing.Size(240, 30);
             this.splitContainer5.SplitterDistance = 90;
             this.splitContainer5.TabIndex = 0;
+            this.splitContainer5.TabStop = false;
             // 
             // numberLabel
             // 
@@ -436,7 +441,7 @@
             this.numberTextbox.Multiline = false;
             this.numberTextbox.Name = "numberTextbox";
             this.numberTextbox.Size = new System.Drawing.Size(146, 30);
-            this.numberTextbox.TabIndex = 0;
+            this.numberTextbox.TabIndex = 2;
             this.numberTextbox.Text = "";
             // 
             // fromPanel
@@ -467,6 +472,7 @@
             this.splitContainer6.Size = new System.Drawing.Size(240, 30);
             this.splitContainer6.SplitterDistance = 90;
             this.splitContainer6.TabIndex = 0;
+            this.splitContainer6.TabStop = false;
             // 
             // fromLabel
             // 
@@ -487,7 +493,7 @@
             this.fromTextbox.Multiline = false;
             this.fromTextbox.Name = "fromTextbox";
             this.fromTextbox.Size = new System.Drawing.Size(146, 30);
-            this.fromTextbox.TabIndex = 0;
+            this.fromTextbox.TabIndex = 6;
             this.fromTextbox.Text = "";
             // 
             // stackPanel
@@ -518,6 +524,7 @@
             this.splitContainer7.Size = new System.Drawing.Size(240, 30);
             this.splitContainer7.SplitterDistance = 90;
             this.splitContainer7.TabIndex = 0;
+            this.splitContainer7.TabStop = false;
             // 
             // stackLabel
             // 
@@ -538,7 +545,7 @@
             this.stackTextbox.Multiline = false;
             this.stackTextbox.Name = "stackTextbox";
             this.stackTextbox.Size = new System.Drawing.Size(146, 30);
-            this.stackTextbox.TabIndex = 0;
+            this.stackTextbox.TabIndex = 3;
             this.stackTextbox.Text = "";
             // 
             // datePanel
@@ -569,6 +576,7 @@
             this.splitContainer8.Size = new System.Drawing.Size(240, 30);
             this.splitContainer8.SplitterDistance = 90;
             this.splitContainer8.TabIndex = 0;
+            this.splitContainer8.TabStop = false;
             // 
             // dateLabel
             // 
@@ -589,7 +597,7 @@
             this.dateTextbox.Multiline = false;
             this.dateTextbox.Name = "dateTextbox";
             this.dateTextbox.Size = new System.Drawing.Size(146, 30);
-            this.dateTextbox.TabIndex = 0;
+            this.dateTextbox.TabIndex = 7;
             this.dateTextbox.Text = "";
             // 
             // emptyPanel
@@ -630,7 +638,8 @@
             this.cancelButton.Margin = new System.Windows.Forms.Padding(0);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(80, 45);
-            this.cancelButton.TabIndex = 0;
+            this.cancelButton.TabIndex = 8;
+            this.cancelButton.TabStop = false;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -644,7 +653,8 @@
             this.addContinueButton.Margin = new System.Windows.Forms.Padding(0);
             this.addContinueButton.Name = "addContinueButton";
             this.addContinueButton.Size = new System.Drawing.Size(80, 45);
-            this.addContinueButton.TabIndex = 1;
+            this.addContinueButton.TabIndex = 9;
+            this.addContinueButton.TabStop = false;
             this.addContinueButton.Text = "Add and Continue";
             this.addContinueButton.UseVisualStyleBackColor = false;
             this.addContinueButton.Click += new System.EventHandler(this.addContinueButton_Click);
@@ -658,7 +668,8 @@
             this.addButton.Margin = new System.Windows.Forms.Padding(0);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(80, 45);
-            this.addButton.TabIndex = 2;
+            this.addButton.TabIndex = 10;
+            this.addButton.TabStop = false;
             this.addButton.Text = "Add Material";
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
