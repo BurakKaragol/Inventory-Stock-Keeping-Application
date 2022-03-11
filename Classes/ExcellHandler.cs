@@ -18,6 +18,16 @@ namespace Inventory_Stock_Keeping_Application
             //excell dosyasini ac
         }
 
+        public bool ImportFromFile()
+        {
+            return true;
+        }
+
+        public bool ExportAsExcell()
+        {
+            return true;
+        }
+
         ~ExcellHandler()
         {
             //excell dosyasin kapat
