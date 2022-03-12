@@ -12,16 +12,16 @@ namespace Inventory_Stock_Keeping_Application.Classes
     public class Material
     {
         private static int idx = 1;
-        public int Id;
-        public string StockCode;
-        public string Name;
-        public int Number;
-        public int Stack;
-        public int TotalNumber;
-        public string Type;
-        public float Price;
-        public string From;
-        public string Date;
+        public int Id { get; set; }
+        public string StockCode { get; set; }
+        public string Name { get; set; }
+        public int Number { get; set; }
+        public int Stack { get; set; }
+        public int TotalNumber { get; set; }
+        public string Type { get; set; }
+        public float Price { get; set; }
+        public string From { get; set; }
+        public string Date { get; set; }
 
         public Material(string stockCode, string name, int number, int stack = 1,
             string type = "not-specified", float price = 0.0f, string from = "unknown", string date = "empty")

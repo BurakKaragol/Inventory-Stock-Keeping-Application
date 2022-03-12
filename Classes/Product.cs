@@ -6,20 +6,13 @@ using System.Threading.Tasks;
 
 namespace Inventory_Stock_Keeping_Application.Classes
 {
-    // for storing required material data
-    public struct MaterialData
-    {
-        public Material material { get; set; }
-        public int required { get; set; }
-    }
-
     /// <summary>
     /// product data is going to be stored in this class
     /// </summary>
 
     public class Product
     {
-        public List<MaterialData> materials;
+        public List<MaterialData> materials { get; set; }
         public int number { get; set; }
 
         public Product()
@@ -34,16 +27,9 @@ namespace Inventory_Stock_Keeping_Application.Classes
             }
         }
 
-        public Product(Material[] mats, int[] nums)
+        public Product(List<MaterialData> mData)
         {
-            materials = new List<MaterialData>();
-            for (int i = 0; i < mats.Length; i++)
-            {
-                MaterialData temp = new MaterialData();
-                temp.material = mats[i];
-                temp.required = nums[i];
-                materials[i] = temp;
-            }
+            materials = mData;
         }
 
         public bool AddMaterial(Material mat, int number)

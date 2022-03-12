@@ -43,16 +43,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.filterByText = new System.Windows.Forms.Label();
             this.searchFilterComboBox = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchTextbox = new System.Windows.Forms.TextBox();
             this.removeComponentButton = new System.Windows.Forms.Button();
             this.addComponentButton = new System.Windows.Forms.Button();
             this.Headers = new System.Windows.Forms.Panel();
-            this.componentListbox = new System.Windows.Forms.ListBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.materialGridView = new System.Windows.Forms.DataGridView();
             this.productPage = new System.Windows.Forms.TabPage();
             this.statusPage = new System.Windows.Forms.TabPage();
             this.productionPage = new System.Windows.Forms.TabPage();
             this.otherPage = new System.Windows.Forms.TabPage();
+            this.exportExcellButton = new System.Windows.Forms.Button();
+            this.importExcellButton = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.upperPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -60,6 +62,8 @@
             this.stockPageLayout.SuspendLayout();
             this.panel1.SuspendLayout();
             this.Headers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.materialGridView)).BeginInit();
+            this.otherPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitter1
@@ -220,7 +224,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.filterByText);
             this.panel1.Controls.Add(this.searchFilterComboBox);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.searchTextbox);
             this.panel1.Controls.Add(this.removeComponentButton);
             this.panel1.Controls.Add(this.addComponentButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -240,6 +244,7 @@
             this.editComponentButton.Name = "editComponentButton";
             this.editComponentButton.Size = new System.Drawing.Size(100, 30);
             this.editComponentButton.TabIndex = 6;
+            this.editComponentButton.TabStop = false;
             this.editComponentButton.Text = "Edit";
             this.editComponentButton.UseVisualStyleBackColor = false;
             this.editComponentButton.Click += new System.EventHandler(this.editComponentButton_Click);
@@ -278,13 +283,13 @@
             this.searchFilterComboBox.Text = "Name";
             this.searchFilterComboBox.SelectedIndexChanged += new System.EventHandler(this.searchFilterComboBox_SelectedIndexChanged);
             // 
-            // textBox1
+            // searchTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(272, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(400, 23);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.searchTextbox.Location = new System.Drawing.Point(272, 4);
+            this.searchTextbox.Name = "searchTextbox";
+            this.searchTextbox.Size = new System.Drawing.Size(400, 23);
+            this.searchTextbox.TabIndex = 2;
+            this.searchTextbox.TextChanged += new System.EventHandler(this.searchTextbox_TextChanged);
             // 
             // removeComponentButton
             // 
@@ -296,6 +301,7 @@
             this.removeComponentButton.Name = "removeComponentButton";
             this.removeComponentButton.Size = new System.Drawing.Size(100, 30);
             this.removeComponentButton.TabIndex = 1;
+            this.removeComponentButton.TabStop = false;
             this.removeComponentButton.Text = "Remove";
             this.removeComponentButton.UseVisualStyleBackColor = false;
             this.removeComponentButton.Click += new System.EventHandler(this.removeComponentButton_Click);
@@ -310,14 +316,14 @@
             this.addComponentButton.Name = "addComponentButton";
             this.addComponentButton.Size = new System.Drawing.Size(100, 30);
             this.addComponentButton.TabIndex = 0;
+            this.addComponentButton.TabStop = false;
             this.addComponentButton.Text = "Add";
             this.addComponentButton.UseVisualStyleBackColor = false;
             this.addComponentButton.Click += new System.EventHandler(this.addComponentButton_Click);
             // 
             // Headers
             // 
-            this.Headers.Controls.Add(this.componentListbox);
-            this.Headers.Controls.Add(this.tableLayoutPanel1);
+            this.Headers.Controls.Add(this.materialGridView);
             this.Headers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Headers.Location = new System.Drawing.Point(0, 30);
             this.Headers.Margin = new System.Windows.Forms.Padding(0);
@@ -325,44 +331,16 @@
             this.Headers.Size = new System.Drawing.Size(986, 501);
             this.Headers.TabIndex = 2;
             // 
-            // componentListbox
+            // materialGridView
             // 
-            this.componentListbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.componentListbox.FormattingEnabled = true;
-            this.componentListbox.ItemHeight = 16;
-            this.componentListbox.Items.AddRange(new object[] {
-            "asjdhck",
-            "asdchkj",
-            "askhdcgva",
-            "askdhjcas",
-            "kasdvcka",
-            "aksdhca"});
-            this.componentListbox.Location = new System.Drawing.Point(0, 20);
-            this.componentListbox.Name = "componentListbox";
-            this.componentListbox.Size = new System.Drawing.Size(986, 481);
-            this.componentListbox.TabIndex = 1;
-            this.componentListbox.SelectedIndexChanged += new System.EventHandler(this.componentListbox_SelectedIndexChanged);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 10;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(986, 20);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.materialGridView.AllowUserToAddRows = false;
+            this.materialGridView.AllowUserToDeleteRows = false;
+            this.materialGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.materialGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialGridView.Location = new System.Drawing.Point(0, 0);
+            this.materialGridView.Name = "materialGridView";
+            this.materialGridView.Size = new System.Drawing.Size(986, 501);
+            this.materialGridView.TabIndex = 0;
             // 
             // productPage
             // 
@@ -396,6 +374,8 @@
             // 
             // otherPage
             // 
+            this.otherPage.Controls.Add(this.exportExcellButton);
+            this.otherPage.Controls.Add(this.importExcellButton);
             this.otherPage.Location = new System.Drawing.Point(4, 29);
             this.otherPage.Name = "otherPage";
             this.otherPage.Padding = new System.Windows.Forms.Padding(3);
@@ -403,6 +383,30 @@
             this.otherPage.TabIndex = 4;
             this.otherPage.Text = "OTHER";
             this.otherPage.UseVisualStyleBackColor = true;
+            // 
+            // exportExcellButton
+            // 
+            this.exportExcellButton.Location = new System.Drawing.Point(535, 141);
+            this.exportExcellButton.Name = "exportExcellButton";
+            this.exportExcellButton.Size = new System.Drawing.Size(335, 256);
+            this.exportExcellButton.TabIndex = 1;
+            this.exportExcellButton.Text = "export";
+            this.exportExcellButton.UseVisualStyleBackColor = true;
+            this.exportExcellButton.Click += new System.EventHandler(this.exportExcellButton_Click);
+            // 
+            // importExcellButton
+            // 
+            this.importExcellButton.Location = new System.Drawing.Point(100, 141);
+            this.importExcellButton.Name = "importExcellButton";
+            this.importExcellButton.Size = new System.Drawing.Size(373, 256);
+            this.importExcellButton.TabIndex = 0;
+            this.importExcellButton.Text = "import";
+            this.importExcellButton.UseVisualStyleBackColor = true;
+            this.importExcellButton.Click += new System.EventHandler(this.importExcellButton_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // Form1
             // 
@@ -419,6 +423,7 @@
             this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "Form1";
             this.Text = "Inventory Stock Keeping Application";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.upperPanel.ResumeLayout(false);
             this.upperPanel.PerformLayout();
             this.mainPanel.ResumeLayout(false);
@@ -428,6 +433,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.Headers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.materialGridView)).EndInit();
+            this.otherPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -449,7 +456,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label filterByText;
         private System.Windows.Forms.ComboBox searchFilterComboBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchTextbox;
         private System.Windows.Forms.Button removeComponentButton;
         private System.Windows.Forms.Button addComponentButton;
         private System.Windows.Forms.TabPage productPage;
@@ -457,8 +464,10 @@
         private System.Windows.Forms.TabPage productionPage;
         private System.Windows.Forms.TabPage otherPage;
         private System.Windows.Forms.Panel Headers;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ListBox componentListbox;
+        private System.Windows.Forms.Button exportExcellButton;
+        private System.Windows.Forms.Button importExcellButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.DataGridView materialGridView;
     }
 }
 

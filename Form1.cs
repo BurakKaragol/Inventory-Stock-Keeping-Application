@@ -15,9 +15,7 @@ namespace Inventory_Stock_Keeping_Application
     /// main form of the application
     /// can access and edit material and product lists
     /// calculate required parts and export as list
-    /// see how many parts you can produce with your existing stock 
-    /// On development for Rezonans Elektronik A.S.
-    /// http://www.rezonanselektronik.net/
+    /// see how many parts you can produce with your existing stock
     /// </summary>
     public partial class Form1 : Form
     {
@@ -28,17 +26,20 @@ namespace Inventory_Stock_Keeping_Application
         List<Product> productList;
         static StockPage stockPageController;
         ExcellHandler excellHandler;
+        OthersPage othersPage;
 
         public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             excellHandler = new ExcellHandler("database");
+            othersPage = new OthersPage();
             stockPageController = new StockPage(searchFilterComboBox.Items);
         }
 
         #region Funcitons
 
+        // toggles fullscreen
         public void ToggleMaximize()
         {
             if (isMaximized)
@@ -59,6 +60,12 @@ namespace Inventory_Stock_Keeping_Application
 
         #region ProgramGenerated
 
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        // for dragging the form
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)
         {
             isDragging = true;
@@ -66,6 +73,7 @@ namespace Inventory_Stock_Keeping_Application
             dragFormPoint = this.Location;
         }
 
+        // for dragging the form
         private void upperPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)
@@ -75,69 +83,89 @@ namespace Inventory_Stock_Keeping_Application
             }
         }
 
+        // for dragging the form
         private void upperPanel_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
         }
 
+        // minimize form
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        // toggle fullscreen
         private void maximizeButton_Click(object sender, EventArgs e)
         {
             ToggleMaximize();
         }
 
+        //exit application
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // toggle fullscreen
         private void upperPanel_DoubleClick(object sender, EventArgs e)
         {
             ToggleMaximize();
         }
 
+        // set the searching filter type
         private void searchFilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             stockPageController.SelectCbox(searchFilterComboBox.SelectedIndex);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        // search and show automatically
+        private void searchTextbox_TextChanged(object sender, EventArgs e)
         {
-            stockPageController.SearchText(textBox1.Text);
+            stockPageController.SearchText(searchTextbox.Text);
         }
 
+        // set the parameters and open editing form
         private void editComponentButton_Click(object sender, EventArgs e)
         {
             stockPageController.EditSelected();
         }
 
+        // delete the selected component
         private void removeComponentButton_Click(object sender, EventArgs e)
         {
             stockPageController.RemoveComponent();
         }
 
+        // add new component
         private void addComponentButton_Click(object sender, EventArgs e)
         {
             stockPageController.AddComponent();
         }
 
-        private void componentListbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            stockPageController.SelectList(componentListbox.SelectedIndex);
-        }
-
+        // set close button color on hover
         private void closeButton_MouseEnter(object sender, EventArgs e)
         {
             closeButton.BackColor = Color.Red;
         }
 
+        // set close button color on hover
         private void closeButton_MouseLeave(object sender, EventArgs e)
         {
             closeButton.BackColor = SystemColors.ButtonShadow;
+        }
+
+        // import existing data
+        private void importExcellButton_Click(object sender, EventArgs e)
+        {
+
+            excellHandler.ImportFromFile();
+        }
+
+        // export data from application
+        private void exportExcellButton_Click(object sender, EventArgs e)
+        {
+            excellHandler.ExportAsExcell();
         }
 
         #endregion

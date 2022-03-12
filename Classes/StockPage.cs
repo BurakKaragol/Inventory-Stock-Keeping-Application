@@ -15,7 +15,7 @@ namespace Inventory_Stock_Keeping_Application.Classes
     /// </summary>
     public class StockPage
     {
-        ComboBox.ObjectCollection cbElements; //search combobox elements
+        ComboBox.ObjectCollection cbElements;
         FormMaterial formMaterial;
         public static Material materialToAdd;
         static List<Material> materialList;
@@ -28,6 +28,7 @@ namespace Inventory_Stock_Keeping_Application.Classes
             cbElements = elements;
             formMaterial = new FormMaterial();
         }
+
         public static bool CheckExist(string stockCode)
         {
             for (int i = 0; i < materialList.Count; i++)

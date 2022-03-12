@@ -24,6 +24,8 @@ namespace Inventory_Stock_Keeping_Application
         }
 
         #region Functions
+
+        // logs the material values if it's valid
         private void LogMaterial(bool isContinue = false)
         {
             if (/*Form1.CheckExist(stockCodeTextbox.Text)*/false)
@@ -44,6 +46,7 @@ namespace Inventory_Stock_Keeping_Application
             }
         }
 
+        // logging function
         private void Log()
         {
             if (stockCodeTextbox.Text != null && nameTextbox.Text != null && numberTextbox.Text != null)
@@ -84,6 +87,7 @@ namespace Inventory_Stock_Keeping_Application
             }
         }
 
+        // set values of the material for editing
         public void SetTexts(string stockCode, string name, string number, string stack = null,
             string type = null, string price = null, string from = null, string date = null)
         {
@@ -97,6 +101,7 @@ namespace Inventory_Stock_Keeping_Application
             dateTextbox.Text = date;
         }
 
+        // clears the values for adding another component
         public void ClearTexts()
         {
             stockCodeTextbox.Text = null;
@@ -113,21 +118,25 @@ namespace Inventory_Stock_Keeping_Application
 
         #region ProgramGenerated
 
+        // hide this panel
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
+        // change button color on hover
         private void closeButton_MouseEnter(object sender, EventArgs e)
         {
             closeButton.BackColor = Color.Red;
         }
 
+        // change button color on hover
         private void closeButton_MouseLeave(object sender, EventArgs e)
         {
             closeButton.BackColor = SystemColors.ButtonShadow;
         }
 
+        // for dragging the form
         private void upperPanel_MouseDown(object sender, MouseEventArgs e)
         {
             isDragging = true;
@@ -135,6 +144,7 @@ namespace Inventory_Stock_Keeping_Application
             dragFormPoint = this.Location;
         }
 
+        // for dragging the form
         private void upperPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (isDragging)
@@ -144,21 +154,25 @@ namespace Inventory_Stock_Keeping_Application
             }
         }
 
+        // for dragging the form
         private void upperPanel_MouseUp(object sender, MouseEventArgs e)
         {
             isDragging = false;
         }
 
+        // for logging the values and closing form
         private void addButton_Click(object sender, EventArgs e)
         {
             LogMaterial(false);
         }
 
+        // for logging values and continuing to add
         private void addContinueButton_Click(object sender, EventArgs e)
         {
             LogMaterial(true);
         }
 
+        // for cancelling active log 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Hide();
