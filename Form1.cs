@@ -35,6 +35,7 @@ namespace Inventory_Stock_Keeping_Application
             excellHandler = new ExcellHandler();
             othersPage = new OthersPage();
             stockPageController = new StockPage(searchFilterComboBox.Items);
+            Ping();
         }
 
         #region Funcitons
@@ -60,9 +61,40 @@ namespace Inventory_Stock_Keeping_Application
 
         #region ProgramGenerated
 
+        // 
+        private void Ping()
+        {
+            if (excellHandler.isOpen)
+            {
+                MessageBox.Show("i: " + excellHandler.row.ToString());
+                MessageBox.Show("j: " + excellHandler.column.ToString());
+                materialGridView.ColumnCount = excellHandler.column;
+                materialGridView.RowCount = excellHandler.row;
+                for (int i = 1; i <= excellHandler.row; i++)
+                {
+                    for (int j = 1; j <= excellHandler.column; j++)
+                    {
+                        var temp = excellHandler.range.Cells[i, j].Value2;
+                        if (temp != null)
+                        {
+                            string temp2 = temp.ToString();
+                            if (temp2 != "" || temp2 != null)
+                            {
+                                materialGridView.Rows[i - 1].Cells[j - 1].Value = temp2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-
+            if (excellHandler.isOpen)
+            {
+                MessageBox.Show(excellHandler.row.ToString());
+                MessageBox.Show(excellHandler.column.ToString());
+            }
         }
 
         // for dragging the form

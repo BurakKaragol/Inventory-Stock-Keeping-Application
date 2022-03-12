@@ -61,7 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ExcelMirror.cs" />
     <Compile Include="Classes\Material.cs" />
     <Compile Include="Classes\MaterialData.cs" />
     <Compile Include="Classes\OthersPage.cs" />
