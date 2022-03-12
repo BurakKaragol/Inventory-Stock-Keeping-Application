@@ -158,7 +158,6 @@ namespace Inventory_Stock_Keeping_Application
         // import existing data
         private void importExcellButton_Click(object sender, EventArgs e)
         {
-
             excellHandler.ImportFromFile();
         }
 
