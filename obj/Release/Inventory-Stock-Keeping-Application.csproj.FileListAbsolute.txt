@@ -1,0 +1,13 @@
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\bin\Release\Inventory-Stock-Keeping-Application.exe.config
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\bin\Release\Inventory-Stock-Keeping-Application.exe
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\bin\Release\Inventory-Stock-Keeping-Application.pdb
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory-Stock-Keeping-Application.csproj.AssemblyReference.cache
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory-Stock-Keeping-Application.csproj.SuggestedBindingRedirects.cache
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory-Stock-Keeping-Application.csproj.ResolveComReference.cache
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory_Stock_Keeping_Application.Form1.resources
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory_Stock_Keeping_Application.FormMaterial.resources
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory_Stock_Keeping_Application.Properties.Resources.resources
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory-Stock-Keeping-Application.csproj.GenerateResource.cache
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory-Stock-Keeping-Application.csproj.CoreCompileInputs.cache
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory-Stock-Keeping-Application.exe
+C:\Users\brkkr\source\repos\Inventory-Stock-Keeping-Application\Inventory-Stock-Keeping-Application\obj\Release\Inventory-Stock-Keeping-Application.pdb

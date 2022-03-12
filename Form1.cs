@@ -32,7 +32,7 @@ namespace Inventory_Stock_Keeping_Application
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            excellHandler = new ExcellHandler("database");
+            excellHandler = new ExcellHandler();
             othersPage = new OthersPage();
             stockPageController = new StockPage(searchFilterComboBox.Items);
         }
@@ -165,6 +165,12 @@ namespace Inventory_Stock_Keeping_Application
         private void exportExcellButton_Click(object sender, EventArgs e)
         {
             excellHandler.ExportAsExcell();
+        }
+
+        ~Form1()
+        {
+            excellHandler = null;
+            Console.WriteLine("application quit");
         }
 
         #endregion

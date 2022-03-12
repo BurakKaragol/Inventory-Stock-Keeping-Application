@@ -15,14 +15,15 @@ namespace Inventory_Stock_Keeping_Application
     /// </summary>
     public class ExcellHandler
     {
-        string filePath = "";
+        string filePath = Application.StartupPath + "\\Inventory_Stock_Keeping_Application.xlsx";
         Excel.Application app;
         Excel.Workbook wb;
         Excel.Worksheet ws;
 
-        public ExcellHandler(string name)
+        public ExcellHandler()
         {
             //open default file
+            OpenFile(filePath);
         }
 
         public bool ImportFromFile()
@@ -87,6 +88,7 @@ namespace Inventory_Stock_Keeping_Application
             Marshal.ReleaseComObject(wb);
             app.Quit();
             Marshal.ReleaseComObject(app);
+            app = null;
             Console.WriteLine("Excel file closed");
         }
     }
