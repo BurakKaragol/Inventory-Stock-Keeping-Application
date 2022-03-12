@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Inventory_Stock_Keeping_Application.Classes
 {
-    internal class ExcelMirror
+    public class ExcelMirror
     {
-
+        string[][] materialdata;
     }
 }
