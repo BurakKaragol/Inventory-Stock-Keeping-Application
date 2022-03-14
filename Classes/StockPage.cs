@@ -34,18 +34,21 @@ namespace Inventory_Stock_Keeping_Application.Classes
         {
             int rows = values.GetLength(0);
             int colmns = values.GetLength(1);
-            for (int i = 1; i <= rows; i++)
+            for (int i = 2; i <= rows; i++)
             {
-                //materialList.Append(LogMaterial());
+                materialList.Append(LogMaterial(values[i, 2].ToString(), values[i, 3].ToString(),
+                    values[i, 4].ToString(), values[i, 5].ToString(), values[i, 7].ToString(),
+                    values[i, 8].ToString(), values[i, 9].ToString(), values[i, 10].ToString()));
             }
             return true;
         }
 
-        public Material LogMaterial(string stockCode, string name, int number, int stack = 1,
-            string type = "not-specified", float price = 0.0f, string from = "unknown", string date = "empty")
+        public Material LogMaterial(string stockCode, string name, string number, string stack = "1",
+            string type = "not-specified", string price = "0.0f", string from = "unknown", string date = "empty")
         {
             if (stockCode != null && name != null && number != null)
             {
+                stack = stack == null ? "1" : stack;
                 if (Convert.ToInt16(stack) >= 1)
                 {
                     if (type == null)
@@ -54,7 +57,7 @@ namespace Inventory_Stock_Keeping_Application.Classes
                     }
                     else if (price == null)
                     {
-                        price = 0.0f;
+                        price = "0.0f";
                     }
                     else if (from == null)
                     {
@@ -65,7 +68,7 @@ namespace Inventory_Stock_Keeping_Application.Classes
                         date = "empty";
                     }
                     Material temp = new Material(stockCode, name, Convert.ToInt16(number),
-                        Convert.ToInt16(stack), type, price, from, date);
+                        Convert.ToInt16(stack), type, float.Parse(price), from, date);
                     return temp;
                 }
                 else
