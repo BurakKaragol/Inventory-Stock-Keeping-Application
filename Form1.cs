@@ -24,7 +24,7 @@ namespace Inventory_Stock_Keeping_Application
         System.Drawing.Point dragCursorPoint;
         System.Drawing.Point dragFormPoint;
         List<Product> productList;
-        static StockPage stockPageController;
+        public static StockPage stockPageController;
         ExcellHandler excellHandler;
         OthersPage othersPage;
 
@@ -32,10 +32,9 @@ namespace Inventory_Stock_Keeping_Application
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            excellHandler = new ExcellHandler();
             othersPage = new OthersPage();
             stockPageController = new StockPage(searchFilterComboBox.Items);
-            Ping();
+            excellHandler = new ExcellHandler();
         }
 
         #region Funcitons
@@ -62,17 +61,25 @@ namespace Inventory_Stock_Keeping_Application
         #region ProgramGenerated
 
         // 
-        private void Ping()
+        private void ExcelToDataTable()
         {
             if (excellHandler.isOpen)
             {
-                MessageBox.Show("i: " + excellHandler.row.ToString());
-                MessageBox.Show("j: " + excellHandler.column.ToString());
                 materialGridView.ColumnCount = excellHandler.column;
-                materialGridView.RowCount = excellHandler.row;
-                for (int i = 1; i <= excellHandler.row; i++)
+                materialGridView.RowCount = excellHandler.row - 1;
+                materialGridView.Columns[0].Name = "ID";
+                materialGridView.Columns[1].Name = "STOCK CODE";
+                materialGridView.Columns[2].Name = "NAME";
+                materialGridView.Columns[3].Name = "NUMBER";
+                materialGridView.Columns[4].Name = "STACK";
+                materialGridView.Columns[5].Name = "TOTAL NUMBER";
+                materialGridView.Columns[6].Name = "TYPE";
+                materialGridView.Columns[7].Name = "PRICE";
+                materialGridView.Columns[8].Name = "FROM";
+                materialGridView.Columns[9].Name = "DATE";
+                for (int i = 2; i <= excellHandler.row; i++)
                 {
-                    for (int j = 1; j <= excellHandler.column; j++)
+                    for (int j = 1; j <= materialGridView.ColumnCount; j++)
                     {
                         var temp = excellHandler.range.Cells[i, j].Value2;
                         if (temp != null)
@@ -80,7 +87,7 @@ namespace Inventory_Stock_Keeping_Application
                             string temp2 = temp.ToString();
                             if (temp2 != "" || temp2 != null)
                             {
-                                materialGridView.Rows[i - 1].Cells[j - 1].Value = temp2;
+                                materialGridView.Rows[i - 2].Cells[j - 1].Value = temp2;
                             }
                         }
                     }

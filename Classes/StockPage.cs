@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Inventory_Stock_Keeping_Application.Classes
 {
@@ -27,6 +28,57 @@ namespace Inventory_Stock_Keeping_Application.Classes
         {
             cbElements = elements;
             formMaterial = new FormMaterial();
+        }
+
+        public bool ExcelToMaterial(Object[,] values)
+        {
+            int rows = values.GetLength(0);
+            int colmns = values.GetLength(1);
+            for (int i = 1; i <= rows; i++)
+            {
+                //materialList.Append(LogMaterial());
+            }
+            return true;
+        }
+
+        public Material LogMaterial(string stockCode, string name, int number, int stack = 1,
+            string type = "not-specified", float price = 0.0f, string from = "unknown", string date = "empty")
+        {
+            if (stockCode != null && name != null && number != null)
+            {
+                if (Convert.ToInt16(stack) >= 1)
+                {
+                    if (type == null)
+                    {
+                        type = "not - specified";
+                    }
+                    else if (price == null)
+                    {
+                        price = 0.0f;
+                    }
+                    else if (from == null)
+                    {
+                        from = "unknown";
+                    }
+                    else if (date == null)
+                    {
+                        date = "empty";
+                    }
+                    Material temp = new Material(stockCode, name, Convert.ToInt16(number),
+                        Convert.ToInt16(stack), type, price, from, date);
+                    return temp;
+                }
+                else
+                {
+                    MessageBox.Show("Stack degeri 0 veya negatif olamaz urun stogu yoksa Number'i duzenle");
+                    return null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Stock Code / Name / Number alanlari bos birakilamaz");
+                return null;
+            }
         }
 
         public static bool CheckExist(string stockCode)

@@ -24,6 +24,7 @@ namespace Inventory_Stock_Keeping_Application
         public int row = 0;
         public int column = 0;
 
+
         public ExcellHandler()
         {
             //open default file
@@ -51,6 +52,14 @@ namespace Inventory_Stock_Keeping_Application
             column = range.Columns.Count;
             Console.WriteLine("Excel file opened");
             isOpen = true;
+            if (CheckValid())
+            {
+                Form1.stockPageController.ExcelToMaterial(range.Value2);
+            }
+            else
+            {
+                MessageBox.Show("Imported file is not valid");
+            }
         }
 
         public string GetPath()
@@ -72,7 +81,14 @@ namespace Inventory_Stock_Keeping_Application
 
         public bool CheckValid()
         {
-            return true;
+            if (range.Cells[1, 1].Value2 == "ID")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         ~ExcellHandler()
@@ -91,8 +107,11 @@ namespace Inventory_Stock_Keeping_Application
         {
             GC.Collect();
             GC.WaitForPendingFinalizers();
+            Marshal.ReleaseComObject(range);
+            range = null;
             Marshal.ReleaseComObject(ws);
-            wb.Close();
+            wb.Close(false);
+            app.Workbooks.Close();
             Marshal.ReleaseComObject(wb);
             app.Quit();
             Marshal.ReleaseComObject(app);
